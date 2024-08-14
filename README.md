@@ -8,9 +8,8 @@
     expected to be run in a UNIX and/or Linux-like command-line environment.
 
     It will be expected you have the following command-line tools installed:
-      1. aws
-      2. git
-      3. docker
+      1. git
+      2. docker
        
 ###### COMMAND-LINE USAGE WITH DOCKER:
 
