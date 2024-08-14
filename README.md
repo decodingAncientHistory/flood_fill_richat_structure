@@ -17,7 +17,9 @@
       
 ###### C++ version:
      
-    Use g++ C++ computer c++20 or later (g++). 
+    The g++ C++ compiler c++20 or later (g++) appears to work just fine.
+    On Ubuntu or similar Debian computers, this can be installed simply with:
+    $ sudo apt-get install g++
        
 ###### Sample Outputs
 
