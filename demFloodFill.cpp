@@ -215,7 +215,7 @@ int main(int argc, char* argv[]) {
   // a binary mask
   // ****************************************
   String outname = (String)outdir + (String)"/floodFill_final.tif";
-  geotiff::writeGeotiff((String)"floodFill_final.tif", tiff.getProjection(), 
+  geotiff::writeGeotiff(outname, tiff.getProjection(), 
 		  tiff.getGeotransform(), mask, nrows, ncols);
   
   // free up memory
