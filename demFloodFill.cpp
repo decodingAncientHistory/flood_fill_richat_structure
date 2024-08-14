@@ -7,10 +7,13 @@ Usage: Compile/use a Linux or UNIX-like command-line. Use g++ compiler
      Geospatial Data Abstraction Library (GDAL).
 
      Also pass in file-name of Geotiff image file or similar (e.g. JPG),
-     as well as starting x and y coordinates (x first, then y).
+     starting x and y coordinates (x first, then y), output directory, and
+     optionally, a threshold value for elevation in the DEM (default below is 438m for Richat).
 
      $ g++ demFloodFill.cpp geotiff.cpp -o floodfill -I/usr/include/gdal -lgdal -lm -std=c++17
-     $ ./floodfill dem.tif 2000, 1200
+     $ ./floodfill subsetted_final.tif 2000 1200 $(pwd) 440
+       or
+     $ ./floodfill subsetted_final.tif 2000 1200 $(pwd)
 
      Note: Replace path /usr/include/gdal with your local C/C++ directory of GDAL
        "include" and/or GDAL header files.
