@@ -21,7 +21,7 @@
     Get the input data:
     $ aws s3 cp s3://satellitearchaeology/subsetted_final.tif .
 
-    Build docker image and run as conatainer:
+    Build docker image and run as container:
     $ docker build -f Dockerfile -t floodfill .
     $ DIR=$(pwd)
     $ docker run -v $DIR:$DIR floodfill $DIR/subsetted_final.tif 2000 1200 $DIR 438
