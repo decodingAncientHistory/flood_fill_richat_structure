@@ -26,11 +26,11 @@
 
 ![Alt text](https://i.imgur.com/1wvkGOe.png)
 
-    A Geotiff is written out containing 1s and 0s. The 1s mark areas of so-called
-    "flood-fill." This is the area that is "filled-in" by the algorithm according
-    to the elevation boundaries of the Digital Elevation Model.
+    A 1-band Geotiff is written out to disk. This Geotiff contains 1s and 0s. The 1s 
+    mark areas of so-called "flood-fill." This is the area that is "filled-in" by the 
+    algorithm according to the elevation boundaries of the Digital Elevation Model.
 
-    We can use any common plotting software (e.g. Python, Matlab, GrADS, etc.)
+    We can use any common plotting software (e.g. Python, Matlab, QGIS, GrADS, etc.)
     to visualize the output (here we are using's Python 3.x's Matplotlib module.
         
 ###### @author: 
