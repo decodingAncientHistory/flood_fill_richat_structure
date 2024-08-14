@@ -43,7 +43,8 @@ typedef std::string String;
 #define DEBUG 0
 #define ELEVATION_THRESH 438
 
-void flood_fill(char** mask, int nrows, int ncols, int sx, int sy, int** dem) {
+void flood_fill(char** mask, int nrows, int ncols, int sx, 
+		int sy, int** dem, int thresh = ELEVATION_THRESH) {
   // define sets of tuples for pixels filled, not-filled 
   // ***************************************************
   std::set<std::tuple<int, int>> filled;
@@ -64,7 +65,7 @@ void flood_fill(char** mask, int nrows, int ncols, int sx, int sy, int** dem) {
       continue;
     }
 
-    if(dem[y][x] >= ELEVATION_THRESH) {
+    if(dem[y][x] >= thresh) {
       continue;
     }
 
@@ -105,14 +106,17 @@ void usage() {
   std::cout << "  $ INCLUDE_DIR=/usr/include/gdal" << std::endl;
   std::cout << "  $ g++ demFloodFill.cpp geotiff.cpp \\ " << std::endl;
   std::cout << "    -o floodfill -I$INCLUDE_DIR -lgdal -lm -std=c++2a" << std::endl;
-  std::cout << "  $ ./floodfill <image_file_name|str> <start_x|int> <start_y|int>" << std::endl;
+  std::cout << "  $ ./floodfill <image_file_name|str> <start_x|int> " << std::endl;
+  std::cout << "    <start_y|int> <outdir|str> <thresh|int>" << std::endl;
+  std::cout << "Note optional final argument 'thresh' or elevation threshold. to pass-in." << std::endl;
+  exit(1);
 }
 
 int main(int argc, char* argv[]) {
 
   // make sure we have appropriate number of args.
   // *********************************************	
-  if(argc != 4) {
+  if(argc < 5) {
     usage();
     throw std::invalid_argument("ERROR: received wrong no. of args.");
   }
@@ -122,10 +126,19 @@ int main(int argc, char* argv[]) {
   // ******************************
   int start_x = 0; 
   int start_y = 0;
+  int elevation_thresh = -9999;
 
   const char* start_x_str = argv[2];
   const char* start_y_str = argv[3];
+  const char* outdir = argv[4];
+  const char* elevation_thresh_str = "";
+  
+  if(argc > 4) {
+    elevation_thresh_str = argv[5];
+  }
 
+  // attempt to get starting x (column) coordinate
+  // *********************************************
   try {
     start_x = atoi(start_x_str);
   } catch(...) {
@@ -133,10 +146,29 @@ int main(int argc, char* argv[]) {
     usage();
   };
 
+  // attempt to get starting y (row) coordinate
+  // ******************************************
   try {
     start_y = atoi(start_y_str);
   } catch(...) {
     std::cout << "ERROR: For start y, integer is required." << std::endl;
+    usage();
+  }
+
+  // get input elevation threshold, if passed-in
+  // *******************************************
+  if(argc > 5) {
+    try {
+      elevation_thresh = atoi(elevation_thresh_str);
+    } catch(...) {
+      std::cout << "Threshold (integer) not passed-in. Defaulting to 438." << std::endl;
+    }
+  }
+
+  // make sure elevation threshold is above zero
+  // *******************************************
+  if((elevation_thresh < 1) && (argc > 5)) {
+    std::cout << "Threshold passed-in must be POSITIVE (>0) integer. Exiting ..." << std::endl;
     usage();
   }
 
@@ -170,13 +202,16 @@ int main(int argc, char* argv[]) {
   char **mask = new char*[nrows];
   for(int r = 0; r < nrows; ++r) mask[r] = new char[ncols];
 
-  flood_fill(mask, nrows, ncols, start_x, start_y, dem);
+  if(!(elevation_thresh == -9999)) { // use thresh. passed-in, if it was
+    flood_fill(mask, nrows, ncols, start_x, start_y, dem, elevation_thresh);
+  } else { // use default value of elevation threshold
+    flood_fill(mask, nrows, ncols, start_x, start_y, dem);
+  }
 
   // write out binary Masks of 1's and 0's to
   // a binary mask
   // ****************************************
-  String outname = (String)std::filesystem::current_path() + (String)"/floodFill_final.tif";
-  std::cout << outname << std::endl;
+  String outname = (String)outdir + (String)"/floodFill_final.tif";
   geotiff::writeGeotiff((String)"floodFill_final.tif", tiff.getProjection(), 
 		  tiff.getGeotransform(), mask, nrows, ncols);
   
