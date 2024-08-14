@@ -26,7 +26,8 @@
     *For the input data (e.g. the file "subsetted_final.tif"), please email me if you wish
     to have it. If not, you may download publicy-available Shuttle Radar Topography Mission
     (SRTM) DEM data yourself, and create & mosaic a DEM file TIFF on your own, for youself
-    to use.
+    to use. Such DEM raster data is available from the USGS or NASA e.g.
+      https://search.earthdata.nasa.gov/search?q=SRTM
 
 ###### USAGE WITHOUT DOCKER:
 
