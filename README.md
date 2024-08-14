@@ -23,9 +23,10 @@
     $ DIR=$(pwd)
     $ docker run -v $DIR:$DIR floodfill $DIR/subsetted_final.tif 2000 1200 $DIR 438
 
-    *For the input data (e.g. subsetted_final.tif), please email me if you wish
+    *For the input data (e.g. the file "subsetted_final.tif"), please email me if you wish
     to have it. If not, you may download publicy-available Shuttle Radar Topography Mission
-    (SRTM) DEM data yourself, and create a DEM file on your own.
+    (SRTM) DEM data yourself, and create & mosaic a DEM file TIFF on your own, for youself
+    to use.
 
 ###### USAGE WITHOUT DOCKER:
 
