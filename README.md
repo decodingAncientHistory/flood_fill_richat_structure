@@ -18,20 +18,20 @@
     $ git clone https://github.com/satelliteArchaeology/flood_fill_richat_structure.git
     $ cd flood_fill_richat_structure/
 
-    Get the input data:
-    $ aws s3 cp s3://satellitearchaeology/subsetted_final.tif .
-
     Build docker image and run as container:
     $ docker build -f Dockerfile -t floodfill .
     $ DIR=$(pwd)
     $ docker run -v $DIR:$DIR floodfill $DIR/subsetted_final.tif 2000 1200 $DIR 438
 
+    *For the input data (e.g. subsetted_final.tif), please email me if you wish
+    to have it. If not, you may download publicy-available Shuttle Radar Topography Mission
+    (SRTM) DEM data yourself, and create a DEM file on your own.
+
 ###### USAGE WITHOUT DOCKER:
 
-    Get the code and data:
+    Get the code:
     $ git clone https://github.com/satelliteArchaeology/flood_fill_richat_structure.git
     $ cd flood_fill_richat_structure/
-    $ aws s3 cp s3://satellitearchaeology/subsetted_final.tif .
 
     Compile and run: 
     $ g++ demFloodFill.cpp geotiff.cpp -o floodfill -I/usr/include/gdal -lgdal -lm -std=c++2a
