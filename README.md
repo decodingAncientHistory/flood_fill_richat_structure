@@ -1,6 +1,6 @@
 ###### NON-RECURSIVE FLOOD-FILL ALGORITHM (C++) AS APPLIED TO THE RICHAT STRUCTURE
 
-![Alt text](https://imgur.com/R4Fsi56)
+![Alt text](https://i.imgur.com/R4Fsi56.png)
 
     C++ code to apply the non-recursive flood-fill algorithm to the
     Richat Structure in Mauritania. Uses a 1-band (single-layer) Geotiff image
