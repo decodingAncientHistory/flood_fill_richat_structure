@@ -42,7 +42,12 @@
     $ git clone https://github.com/satelliteArchaeology/flood_fill_richat_structure.git
     $ cd flood_fill_richat_structure/
 
-    Compile and run: 
+    Compile and run:
+
+    Note that you will need to point to the "include" directory
+    containing your GDAL installation header files. Hence, the Geospatial Data
+    Abstraction Library (GDAL) will be required, with its relevant C/C++ binaries.
+    
     $ g++ demFloodFill.cpp geotiff.cpp -o floodfill -I/usr/include/gdal -lgdal -lm -std=c++2a
 
     Pass in the following:
