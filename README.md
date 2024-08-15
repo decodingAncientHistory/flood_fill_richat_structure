@@ -30,11 +30,9 @@
     
     $ docker run -v $DIR:$DIR floodfill $DIR/subsetted_final.tif 2000 1200 $DIR 438
 
-    *For the input data (e.g. the file "subsetted_final.tif"), please email me if you wish
-    to have it. If not, you may download publicy-available Shuttle Radar Topography Mission
-    (SRTM) DEM data yourself, and create & mosaic a DEM file TIFF on your own, for youself
-    to use. Such DEM raster data is publicly available from the USGS or NASA e.g.
-      https://search.earthdata.nasa.gov/search?q=SRTM
+    Note:
+    The input data "subsetted_final.tif" was created with a mosaic of publicly
+    available SRTM data from USGS/NASA. This image file is in this repo.
 
 ###### USAGE WITHOUT DOCKER:
 
