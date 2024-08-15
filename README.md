@@ -23,8 +23,8 @@
 
     Pass in the following:
     (1) input filename holding DEM data
-    (2) starting X coordinate
-    (3) starting Y coordinate
+    (2) starting X coordinate (column)
+    (3) starting Y coordinate (row)
     (4) ouput directory
     (5) threshold (optional, default value is 438)
     
@@ -47,8 +47,8 @@
 
     Pass in the following:
     (1) input filename holding DEM data
-    (2) starting X coordinate
-    (3) starting Y coordinate
+    (2) starting X coordinate (column)
+    (3) starting Y coordinate (row)
     (4) ouput directory
     (5) threshold (optional, default value is 438)
     
