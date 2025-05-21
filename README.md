@@ -1,6 +1,6 @@
 ###### NON-RECURSIVE FLOOD-FILL ALGORITHM (C++) AS APPLIED TO THE RICHAT STRUCTURE
 
-![Alt text](https://i.imgur.com/R4Fsi56.png)
+![Alt text](https://64.media.tumblr.com/cd5bad247d8700f31ac712b0b08e2014/aab9e694221b538f-14/s1280x1920/16fb65804eeaeaf8420910c2996e2d8f14b04fc6.pnj)
 
     C++ code to apply the non-recursive flood-fill algorithm to the
     Richat Structure in Mauritania. Uses a 1-band (single-layer) Geotiff image
@@ -66,7 +66,7 @@
        
 ###### Sample Outputs
 
-![Alt text](https://i.imgur.com/1wvkGOe.png)
+![Alt text](https://64.media.tumblr.com/2f0ff695171e7610ca062f3417fb68d2/aab9e694221b538f-6f/s2048x3072/253a779bbccb0bf81bffd07470289727bce2cad0.pnj)
 
     A 1-band Geotiff is written out to disk. This Geotiff contains 1s and 0s. The 1s 
     mark areas of so-called "flood-fill." This is the area that is "filled-in" by the 
